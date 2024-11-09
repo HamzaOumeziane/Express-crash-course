@@ -4,15 +4,8 @@ const path = require('path');
 
 const port = 8000;
 
-
-app.get('/', (req, res) => {
-    res.send({message: 'Hello World!'});
-});
-
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
-
+// setup static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
